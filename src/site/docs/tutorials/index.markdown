@@ -145,9 +145,14 @@ including some of its "syntactic sugar".
 
 {% endcomment %}
 
-<TD style="float:left">Tutorial version: 2 Nov 2012</TD>
-
-<TD><a href="/docs/tutorials/get-started/" style="float:right;">Next</a></TD>
+<div class="row">
+  <div class="span3">
+  2 Nov 2012
+  </div>
+  <div class="span3 offset3">
+  <a href="/docs/tutorials/get-started/" class="pull-right">1: Get Started</a>
+  </div>
+</div>
 
 {% endcapture %}
 

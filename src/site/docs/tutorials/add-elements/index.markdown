@@ -247,10 +247,17 @@ An Element keeps references to all of its children in a list called `elements`.
 By adding and removing elements to and from this list,
 your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
-The affect, in our todo app, is that a new bullet item appears 
+The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
 
-<TD><a href="/docs/tutorials/connect-dart-html/" style="float:left;">Previous</a></TD>
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/connect-dart-html/">2: Connect Dart & HTML</a>
+  </div>
+  <div class="span3 offset3">
+  <a href="/docs/tutorials/" class="pull-right">Home</a>
+  </div>
+</div>
 
 {% endcapture %}
 

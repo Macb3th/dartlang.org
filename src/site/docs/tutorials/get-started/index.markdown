@@ -35,9 +35,9 @@ create and run two small applications.
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
 * [About main() and other top-level functions](#top-level-functions)
-* [About string literals](#strings)
 * [About file naming Conventions](#file-names)
 {% comment %}
+* [About string literals](#strings)
 * [9-dart finish](#9-dart-finish)
 {% endcomment %}
 
@@ -447,6 +447,7 @@ and does not take any arguments
 (as indicated by the empty parentheses),
 but, like any other function, it could have both.
 
+{% comment %}
 ##About string literals {#strings}
 
 Text between single quotes
@@ -456,7 +457,6 @@ Strings are a built-in type in Dart.
 They support expression evaluation,
 concatenation, and multi-line strings.
 
-{% comment %}
 [XX: elaborate about multi-line strings, etc.]
 {% endcomment %}
 
@@ -495,8 +495,14 @@ Should be able to answer questions about these:
 * ??
 {% endcomment %}
 
-<TD><a href="/docs/tutorials/" style="float:left;">Previous</a></TD>
-<TD><a href="/docs/tutorials/connect-dart-html/" style="float:right;">Next</a></TD>
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/">Home</a>
+  </div>
+  <div class="span3 offset3">
+  <a href="/docs/tutorials/connect-dart-html/" class="pull-right">2: Connect Dart & HTML</a>
+  </div>
+</div>
 
 {% endcapture %}
 

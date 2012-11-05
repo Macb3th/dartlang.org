@@ -454,7 +454,7 @@ slightly simplified, HTML.
 
 Finish your edits and save the file with **File > Save**.
 
-##About the HMTL source code {#about-html-code}
+##About the HTML source code {#about-html-code}
 
 This HTML code is similar to the simple HTML code in the
 various diagrams earlier in this target.
@@ -735,8 +735,14 @@ Should be able to answer these questions:
 * and another
 {% endcomment %}
 
-<TD><a href="/docs/tutorials/get-started/" style="float:left;">Previous</a></TD>
-<TD><a href="/docs/tutorials/add-elements/" style="float:right;">Next</a></TD>
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/get-started/">1: Get Started</a>
+  </div>
+  <div class="span3 offset3">
+  <a href="/docs/tutorials/add-elements/" class="pull-right">3: Add an Element to the DOM</a>
+  </div>
+</div>
 
 {% endcapture %}
 
