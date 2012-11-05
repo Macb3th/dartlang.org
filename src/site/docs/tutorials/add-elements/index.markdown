@@ -252,10 +252,10 @@ in the to do list.
 
 <div class="row">
   <div class="span3">
-  <a href="/docs/tutorials/connect-dart-html/">2: Connect Dart & HTML</a>
+  <a href="/docs/tutorials/connect-dart-html/"><i class="icon-chevron-left"> </i> Connect Dart & HTML</a>
   </div>
   <div class="span3 offset3">
-  <a href="/docs/tutorials/" class="pull-right">Home</a>
+  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

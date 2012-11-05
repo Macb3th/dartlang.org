@@ -150,7 +150,7 @@ including some of its "syntactic sugar".
   2 Nov 2012
   </div>
   <div class="span3 offset3">
-  <a href="/docs/tutorials/get-started/" class="pull-right">1: Get Started</a>
+  <a href="/docs/tutorials/get-started/" class="pull-right">Get Started <i class="icon-chevron-right"> </i></a>
   </div>
 </div>
 

@@ -737,10 +737,10 @@ Should be able to answer these questions:
 
 <div class="row">
   <div class="span3">
-  <a href="/docs/tutorials/get-started/">1: Get Started</a>
+  <a href="/docs/tutorials/get-started/"><i class="icon-chevron-left"> </i> Get Started</a>
   </div>
   <div class="span3 offset3">
-  <a href="/docs/tutorials/add-elements/" class="pull-right">3: Add an Element to the DOM</a>
+  <a href="/docs/tutorials/add-elements/" class="pull-right">Add an Element to the DOM <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 
