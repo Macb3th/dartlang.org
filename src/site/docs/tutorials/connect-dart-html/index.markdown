@@ -269,7 +269,7 @@ which contains the classes and functions for programming the DOM.
 Generally speaking, all Dart web apps need the Dart HTML library.
 Key classes include:
 
-| Dart Class | Description |
+| Dart class | Description |
 |---|---|
 | <a href="http://api.dartlang.org/dart_html/Node.html">Node</a> | Implements a Dart Node. |
 | <a href="http://api.dartlang.org/dart_html/Element.html">Element</a> | A subclass of Node, implements a web page element. |
@@ -293,14 +293,14 @@ query() is a top-level function provided by the Dart HTML library
 that gets an Element object from the DOM.
 
 <img src="images/3-mini-code-walk-through.png"
-     alt="Query for a DOM object by its ID">
+     alt="An example of querying for a DOM object by its ID">
 
 The argument to query(), a string,
 is a CSS selector that identifies the object.
-CSS selectors can be classes, identifiers, attributes, etc.
-In this case #RipVanWinkle 
-is a unique ID for a paragraph element
-that is set in the HTML file.
+Most commonly CSS selectors are classes, identifiers, or attributes.
+In this case RipVanWinkle is the unique ID for a paragraph element
+declared in the HTML file
+and #RipVanWinkle specifies that ID.
 
 <img src="images/2-mini-code-walk-through.png"
      alt="ID attribute from HTML file">
@@ -308,7 +308,7 @@ that is set in the HTML file.
 Another useful function for getting elements from the DOM
 is queryAll(),
 which returns multiple Element objects via
-a list of elements--List<Element>&mdash;all
+a list of elements&mdash;List<Element>&mdash;all
 of which match the provided selector.
 
 ###Setting the text of an Element
@@ -316,6 +316,7 @@ of which match the provided selector.
 In the DOM, the text of a page element is contained
 in a child node, specifically, a Text node.
 In the following diagram,
+the node containing the string
 "RipVanWinkle paragraph."
 is a text node.
 
@@ -328,13 +329,16 @@ embedded links and images,
 would be represented with a subtree of text nodes and other objects.
 
 In Dart,
-for convenience and to simplify code,
-instead of walking a subtree of nodes to get
-a page element's text,
-you can use the Element class's getter and setter `.text`.
+you can simply use the Element `text` property,
+which has a getter
+that walks the subtree of nodes for you and extracts their text.
 
 <img src="images/4-mini-code-walk-through.png"
      alt="Text node child of the paragraph">
+
+However, if the text node has styles (and thus a subtree),
+getting text and then setting it immediately is likely
+to change the DOM, as a result of losing subtree information.
 
 Often, as with our RipVanWinkle example,
 this simplification has no adverse effects.
@@ -342,7 +346,7 @@ Do know, however, that with more complex situations
 getting text and then setting it immediately
 will likely change the text.
 
-The equal operator sets the text
+The assignment operator (=) sets the text
 of the Element returned by the query() function
 to the string "Wake up, sleepy head!".
 

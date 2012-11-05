@@ -206,7 +206,7 @@ The dart:html library has dozens of Element subclasses,
 many of which correspond to certain HTML tags.
 This program uses three:
 
-| HTML Tag | Dart Class |
+| HTML tag | Dart class |
 |---|---|
 | \<input> | <a href="http://api.dartlang.org/dart_html/InputElement.html">InputElement</a> |
 | \<ul> | <a href="http://api.dartlang.org/dart_html/UListElement.html">UListElement</a> |
@@ -243,7 +243,7 @@ The change event handler has the following code:
 The final line of code is where the DOM gets changed.
 The add() function is defined in the List class in the dart:core library.
 
-An Element keeps references to all of its childnre in a list called `elements`.
+An Element keeps references to all of its children in a list called `elements`.
 By adding and removing elements to and from this list,
 your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
