@@ -271,13 +271,13 @@ Key classes include:
 
 | Dart class | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_html/Node.html">Node</a> | Implements a Dart Node. |
-| <a href="http://api.dartlang.org/dart_html/Element.html">Element</a> | A subclass of Node, implements a web page element. |
-| <a href="http://api.dartlang.org/dart_html/Document.html">Document</a> | Another subclass of Node. Implements the document object. |
+| <a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a> | Implements a Dart Node. |
+| <a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | A subclass of Node, implements a web page element. |
+| <a href="http://api.dartlang.org/dart_html/Document.html" target="_blank">Document</a> | Another subclass of Node. Implements the document object. |
 {: .table}
 
 The Dart core library contains another useful class,
-<a href="http://api.dartlang.org/dart_core/List.html">List</a>,
+<a href="http://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 a parameterized class that can specify the type of its members.
 The Element class keeps its list of child Elements
 in a List\<Element>, a list that can contain only Element objects.

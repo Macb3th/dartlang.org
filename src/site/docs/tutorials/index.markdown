@@ -25,7 +25,9 @@ your guide to building great web apps using Dart.
 
 This is a draft.
 Your kindly worded
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback">
+<a
+ href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
 comments and suggestions
 </a>
 are appreciated.
