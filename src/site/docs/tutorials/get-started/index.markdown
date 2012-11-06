@@ -499,7 +499,14 @@ Should be able to answer questions about these:
   <div class="span3">
   <a href="/docs/tutorials/"><i class="icon-chevron-left"> </i> Home</a>
   </div>
-  <div class="span3 offset3">
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback.
+</a>
+  </div>
+  <div class="span3">
   <a href="/docs/tutorials/connect-dart-html/" class="pull-right">Connect Dart & HTML <i class="icon-chevron-right"> </i></a>
   </div>
 </div>

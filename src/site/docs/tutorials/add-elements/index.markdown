@@ -265,7 +265,14 @@ in the to do list.
   <div class="span3">
   <a href="/docs/tutorials/connect-dart-html/"><i class="icon-chevron-left"> </i> Connect Dart & HTML</a>
   </div>
-  <div class="span3 offset3">
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback.
+</a>
+  </div>
+  <div class="span3">
   <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>

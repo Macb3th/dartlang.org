@@ -151,7 +151,14 @@ including some of its "syntactic sugar".
   <div class="span3">
   2 Nov 2012
   </div>
-  <div class="span3 offset3">
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback.
+</a>
+  </div>
+  <div class="span3">
   <a href="/docs/tutorials/get-started/" class="pull-right">Get Started <i class="icon-chevron-right"> </i></a>
   </div>
 </div>
