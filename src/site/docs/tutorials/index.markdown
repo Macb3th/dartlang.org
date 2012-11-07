@@ -75,6 +75,10 @@ Dart Editor, HTML, and CSS.
 responds to a user-generated event
 by adding an Element to the DOM.
 
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 4: Remove an Element from the DOM](remove-elements/)
+: In this target, you will modify the little todo app from Target 3
+to remove elements from the DOM.
+
 <div>
   <hr>
   <div class="row">

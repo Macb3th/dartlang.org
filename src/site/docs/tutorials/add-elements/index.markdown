@@ -4,7 +4,7 @@ title: "Target 3: Add an Element to the DOM"
 description: "You have an Element object, now what?"
 has-permalinks: true
 tutorial:
-  id: add-elems
+  id: add-elements
 ---
 
 {% capture whats_the_point %}
@@ -43,14 +43,14 @@ Because the nodes you care about most are usually elements,
 this target focuses on Element,
 rather than on Node.
 
-* [Copy and run the todo web app](#copy-app)
+* [Copy and run the todo app](#copy-app)
 * [About parent and child Elements in Dart](#tree-structure)
 * [Setting up the page in HTML](#html-code)
 * [Getting an element from the DOM](#dart-code)
 * [Registering an event handler](#event-handler)
 * [Adding an element to the DOM tree](#add-elem)
 
-##Copy and run the todo web app {#copy-app}
+##Copy and run the todo app {#copy-app}
 
 In this target, you will be working with a sample web app
 that is a partial implementation of a todo list.
@@ -84,7 +84,7 @@ Enter _dance_ into the input field.
 
 ![todo app running in Dartium](images/type-dance.png)
 
-The todo app adds _dance_ to the page just below _My list:_.
+The todo app adds _dance_ to the page just below the input field.
 
 ![todo app after dance is added to the list](images/adds-dance.png)
 
