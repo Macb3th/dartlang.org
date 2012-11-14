@@ -49,6 +49,7 @@ rather than on Node.
 * [Getting an element from the DOM](#dart-code)
 * [Registering an event handler](#event-handler)
 * [Adding an element to the DOM tree](#add-elem)
+* [Styling the page elements](#about-css)
 
 ##Copy and run the todo app {#copy-app}
 
@@ -207,7 +208,7 @@ it should stash a reference to the element.
 
 This program stashes a reference
 to the input element
-in a top-level variable called `toDoInput`
+in a top-level variable called `toDoInput`.
 The unordered list
 is in the top-level variable `toDoList`.
 
@@ -227,10 +228,11 @@ This program uses three:
 ## Registering an event handler {#event-handler}
 
 When a user enters text into the input field,
-a _change_ event fires.
+a _change_ event fires,
+indicating that the value in the input field has just changed.
 The todo app has a function named addToDoItem()
 that can handle these change events.
-The following code connects addToDoItem to the input field:
+The following code connects addToDoItem() to the input field:
 
 ![Add an event handler to the toDoInput element](images/event-handler-todo.png)
 
@@ -241,15 +243,15 @@ for adding an event handler to an Element.
 ![Dart idiom: Add an event handler to an Element](images/event-handler-idiom.png)
 
 A change event is just one of many different types of events
-that an element can generate.
+that an input element can generate.
 For example, you can use `click` to handle mouse clicks,
-or `keyDown` for when someone types a key on the keyboard.
+or `keyDown` for when the user presses a key on the keyboard.
 
 ##Adding an element to the DOM tree {#add-elem}
 
 The change event handler has the following code:
 
-![The addToDoItem function explained](images/add-element-code.png)
+![The addToDoItem() function explained](images/add-element-code.png)
 
 The final line of code is where the DOM gets changed.
 The add() function is defined in the List class in the dart:core library.
@@ -260,6 +262,25 @@ your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
 The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
+
+##Styling the page elements {#about-css}
+
+Let's take a look at the CSS file for this app.
+
+![The effect of CSS styles](images/css-code.png)
+
+This code uses three different kinds of CSS selectors.
+The first is an HTML element selector that matches the \<body> element
+and sets some basic style attributes,
+such as the background color,
+for the entire page.
+It also uses two ID selectors.
+
+The last CSS rule in the file
+uses both an ID selector and an HTML selector together.
+This rule matches all \<li> elements in the
+element with the id `to-do-list`, thus styling
+each item in the to do list.
 
 <div class="row">
   <div class="span3">
@@ -273,7 +294,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/remove-elements/" class="pull-right">Remove Elements <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

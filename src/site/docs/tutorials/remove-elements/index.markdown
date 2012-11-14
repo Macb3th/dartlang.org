@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 4: Remove an Element from the DOM"
+title: "Target 4: Remove Elements from the DOM"
 description: "Remove a child element from the DOM"
 has-permalinks: true
 tutorial:
@@ -16,23 +16,26 @@ tutorial:
 
 {% capture content %}
 
-In this short target,
-you will modify the todo app
-to allow the user to delete items from the list.
+This target focuses on a modified version of the todo app
+that allows the users to delete items from the list.
 When the user hovers the mouse over an item,
-it changes its appearance.
+the item changes its appearance.
 When the user clicks the item,
-the Dart program removes the item from the DOM.
+the Dart program removes the item from the list
+(by removing it from the DOM).
+Also, the program has a **Delete All** button
+for removing all items from the list.
 
 * [Copy and run the new todo app](#copy-app)
-* [Removing an element from the DOM tree](#remove-elem)
+* [Changing the appearance during mouse hover](#css-hover)
+* [Removing elements from the DOM tree](#remove-elem)
 
 ##Copy and run the new todo app {#copy-app}
 
 Use the following links to
 copy the HTML, Dart, and CSS code
 into a new web app in Dart Editor.
-Name the app todo and make sure the filenames
+Name the app todo-with-delete and make sure the filenames
 are the same as those listed here.
 
 <ul>
@@ -52,56 +55,150 @@ are the same as those listed here.
 
 Then run the app.
 Enter a few items into the input field.
-For example, the diagram shows the app after
+The following diagram shows the app after
 _dance_, _sing_, _walk the dog_, and _laugh_ have all been entered.
 
-![todo app with a several items in the list](images/todo-with-items.png)
+![Entering items into the todo app](images/enter-items.png)
 
 Hover the mouse over one of the items in the list.
-Its appearances changes.
-The text is now red and the font is slightly larger.
-
-![todo app with hovering mouse](images/todo-with-hover.png)
+Its appearances changes;
+the text is now red and the font is slightly larger.
+Also, the cursor changes to a pointer or a hand shape.
+These visual clues signal to the user that something irreversible
+will happen when they click on it.
 
 Click the red item
 and it disappears from the list.
+The event handling and the DOM manipulation is controlled on the Dart side.
 
-##Removing an element from the DOM tree {#remove-elem}
+![Hover over an item then click to delete it](images/remove-an-item.png)
 
+Use the **Delete All** button in the lower right corner of the app
+to remove all of the items in the list at once.
 
-[xx: talk about the event argument to the handler,
-talk about not removing an item from the list,
-but from Element,
-perhaps even talk about why we don't have to do boundary checking,
-talk about why seemingly useless interim assignment to a var]
+![Click the Delete All button to remove all the todo items](images/remove-all.png)
 
-The todo app needs to
-listen for click events
-and respond to those events by removing an item in the list.
+The remaining sections describe
+key aspects of the code 
+added to the todo app for this target.
+Specifically, it looks at
+the Dart code that removes elements from the DOM
+and one key rule in the CSS code.
+You should familiarize yourself with the HTML code
+that creates the **Delete All** button
+and the CSS code that styles it.
 
-![Dart code for removing an item](images/remove-dart-code.png)
+##Changing the appearance during mouse hover {#css-hover}
 
-In the Dart file,
-register an event handler on each new item
-when it is added to the list.
-Within the function that handles the event,
-remove the item.
+As you saw, an item in the list turns red and gets bigger
+when the user hovers the mouse over it.
+The mouse cursor also changes shape.
+These visual clues are an important part of the user interface
+in this example because they are the only indication to the user
+that something will happen when the item is clicked.
 
-To signal to the user that something irreversible is about to happen,
-the todo app displays the list item
-in red in a larger font when the mouse hovers over it.
-This change is made in the CSS file.
+This behavior is coded in the todo app's CSS file with this rule:
 
 {% highlight dart %}
-#to-do-list li {
-  padding:5px 0px 5px 5px;
-  border-bottom: 1px dotted #ccc;
+#to-do-list li:hover {
+  color: red;
+  font-size: 18px;
+  cursor:pointer;
 }
 {% endhighlight %}
 
+We've used this CSS trick
+instead of providing a familiar user interface,
+such as a button with an 'X' on it,
+to keep the code simpler.
 
+##Removing elements from the DOM tree {#remove-elem}
 
+The user clicks an item in the todo list to delete it.
+The Dart code implements this behavior in two steps:
 
+* it registers an event handler to respond to mouse clicks
+* when called, the event handler removes the item from the list
+
+This is all achieved with one line of code in the Dart side.
+As you saw in the previous target,
+for each new to do item typed in by the user,
+the addToDoItem() function creates a new LIElement and adds it to the DOM.
+
+Now,
+the code also adds a function for handling mouse
+clicks to the new element.
+On a mouse click, the element removes itself from the DOM.
+
+![Registering an event handler to delete an item](images/addToDoItem-with-delete.png)
+
+Instead of using a function in the List class
+to remove the element as you might expect,
+this code uses the remove() function declared in Element.
+Doing so makes the code shorter and more concise
+because the element knows its location in the DOM 
+and because the remove() function already implements the desired behavior;
+it locates the element in the parent's list of children and removes it,
+doing any error and boundary checks that are necessary.
+
+When the element removes itself from the DOM,
+the browser re-renders the page and the item in the todo list is gone.
+
+###Removing all the items from the todo list
+
+When the user clicks the **Delete All** button,
+all elements are removed from the list.
+Here's how.
+
+<ol>
+<li markdown="1">
+The HTML code creates a button with the ID delete-all.
+(The CSS styles it.)
+
+{% highlight dart %}
+<button id="delete-all" type="button" float:right> Delete All </button>
+{% endhighlight %}
+
+</li>
+
+<li markdown="1">
+The Dart code gets the button element from the DOM
+and adds a mouse click handler to the button
+that removes all of the child elements from the UListElement.
+clear() is a function defined in the List class.
+Here's all of the Dart code related to the **Delete All** button.
+
+{% highlight dart %}
+import 'dart:html';
+...
+ButtonElement deleteAll;
+
+void main() {}
+...
+  deleteAll = query('#delete-all');
+  deleteAll.on.click.add((e) => toDoList.elements.clear());
+}
+...
+{% endhighlight %}
+
+</li>
+</ol>
+
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/add-elements/"><i class="icon-chevron-left"> </i> Add an Element to the DOM</a>
+  </div>
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback
+</a>
+  </div>
+  <div class="span3">
+  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  </div>
+</div>
 
 {% endcapture %}
 
