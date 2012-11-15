@@ -9,14 +9,12 @@ tutorial:
 
 {% capture whats_the_point %}
 
-* The DOM models a browser page in a tree structure.
-* The Document object is at the root of the tree.
-* A Dart web app needs both a Dart file and an HTML file.
+* The DOM models a browser page in a tree/node structure.
 * An HTML file hosts your Dart code in a browser page.
-* Use query() to get DOM elements.
+* Use query() to get elements from the DOM.
 * Control run-time configurations with named launches.
 * Compile to JavaScript to run in any modern browser.
-* Use CSS to set styles for visible elements.
+* Use CSS selectors to identify elements.
 
 {% endcapture %}
 
@@ -147,6 +145,7 @@ void main() {
 }
 {% endhighlight %}
 
+<img src="../new-icon.png" width="48" height="48">
 <i class="icon-info-sign"> </i>
 <a href="errors-warnings.html">What is Dart Editor trying to tell me?</a>
 
@@ -508,7 +507,8 @@ Save your files and run the app again.
 <img src="images/mini-output-with-css.png"
      alt="Mini app running in Dartium with CSS styles in effect">
 
-##About CSS selectors {#about-css-code}
+<a name="about-css-code">
+<h2><img src="../new-icon.png" width="48" height="48">About CSS selectors</h2>
 
 The CSS file for the mini app has one CSS rule in it.
 A CSS rule has two main parts: a selector and a set of declarations.

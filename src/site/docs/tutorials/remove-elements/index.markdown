@@ -9,8 +9,10 @@ tutorial:
 
 {% capture whats_the_point %}
 
-* Use the remove() function in the Element class.
-* Learn some CSS.
+* An element can remove itself from the DOM with remove().
+* Remove all children from an element with clear().
+* Function expressions is a shorthand syntax for defining functions.
+* The Dart HTML defines many event-related classes.
 
 {% endcapture %}
 
@@ -26,11 +28,14 @@ the Dart program removes the item from the list
 Also, the program has a **Delete All** button
 for removing all items from the list.
 
-* [Copy and run the new todo app](#copy-app)
+* [Copy and run the todo-with-delete app](#copy-app)
 * [Changing the appearance during mouse hover](#css-hover)
-* [Removing elements from the DOM tree](#remove-elem)
+* [Removing an element from the DOM tree](#remove-elem)
+* [Removing all child elements from an element](#remove-all-elem)
+* [About function expressions](#about-function-expressions)
+* [About Dart's event-related classes ](#about-event-classes)
 
-##Copy and run the new todo app {#copy-app}
+##Copy and run the todo-with-delete app {#copy-app}
 
 Use the following links to
 copy the HTML, Dart, and CSS code
@@ -40,15 +45,15 @@ are the same as those listed here.
 
 <ul>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo/todo-with-delete.dart"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo-with-delete/todo-with-delete.dart"
    target="_blank">todo-with-delete.dart</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo/todo-with-delete.html"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo-with-delete/todo-with-delete.html"
    target="_blank">todo-with-delete.html</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo/todo-with-delete.css"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo-with-delete/todo-with-delete.css"
    target="_blank">todo-with-delete.css</a>
  </li>
  </ul>
@@ -58,7 +63,7 @@ Enter a few items into the input field.
 The following diagram shows the app after
 _dance_, _sing_, _walk the dog_, and _laugh_ have all been entered.
 
-![Entering items into the todo app](images/enter-items.png)
+![Entering items into the todo-with-delete app](images/enter-items.png)
 
 Hover the mouse over one of the items in the list.
 Its appearances changes;
@@ -97,7 +102,7 @@ These visual clues are an important part of the user interface
 in this example because they are the only indication to the user
 that something will happen when the item is clicked.
 
-This behavior is coded in the todo app's CSS file with this rule:
+This behavior is coded in the todo-with-delete app's CSS file with this rule:
 
 {% highlight dart %}
 #to-do-list li:hover {
@@ -112,43 +117,43 @@ instead of providing a familiar user interface,
 such as a button with an 'X' on it,
 to keep the code simpler.
 
-##Removing elements from the DOM tree {#remove-elem}
+##Removing an element from the DOM tree {#remove-elem}
 
-The user clicks an item in the todo list to delete it.
-The Dart code implements this behavior in two steps:
+An element is removed from
+the DOM when it is removed from its parent's list of children.
+The List class provides functions for finding an item in the list
+and removing it.
+But, in this case,
+using Element's remove() function
+is shorter and more concise than
+using functions from the List class.
 
-* it registers an event handler to respond to mouse clicks
-* when called, the event handler removes the item from the list
+![Remove an element from the DOM](images/remove-element.png)
 
-This is all achieved with one line of code in the Dart side.
-As you saw in the previous target,
-for each new to do item typed in by the user,
-the addToDoItem() function creates a new LIElement and adds it to the DOM.
+In the todo-with-delete app,
+the user clicks an item to delete it.
+This is achieved with one line of Dart code.
+When a new todo item is created,
+the code registers a mouse click handler on the new element.
+The event handler causes the element to remove itself from the DOM
+with remove().
 
-Now,
-the code also adds a function for handling mouse
-clicks to the new element.
-On a mouse click, the element removes itself from the DOM.
-
-![Registering an event handler to delete an item](images/addToDoItem-with-delete.png)
-
-Instead of using a function in the List class
-to remove the element as you might expect,
-this code uses the remove() function declared in Element.
-Doing so makes the code shorter and more concise
-because the element knows its location in the DOM 
-and because the remove() function already implements the desired behavior;
-it locates the element in the parent's list of children and removes it,
-doing any error and boundary checks that are necessary.
+![Registering an event handler to delete an item](images/remove-element-code.png)
 
 When the element removes itself from the DOM,
 the browser re-renders the page and the item in the todo list is gone.
 
-###Removing all the items from the todo list
+##Removing all child elements from an element {#remove-all-elem}
 
 When the user clicks the **Delete All** button,
 all elements are removed from the list.
-Here's how.
+
+![Remove all child elements from an Element](images/remove-all-elements.png)
+
+In this case, using the List class's clear() function
+yields the most concise code.
+Here's the code from the todo-with-delete app
+that implements the **Delete All** button.
 
 <ol>
 <li markdown="1">
@@ -163,26 +168,75 @@ The HTML code creates a button with the ID delete-all.
 
 <li markdown="1">
 The Dart code gets the button element from the DOM
-and adds a mouse click handler to the button
-that removes all of the child elements from the UListElement.
+using query() and the button's id #delete-all.
+The code registers a mouse click handler on the button;
+the handler removes all of the child elements from the UListElement.
 clear() is a function defined in the List class.
-Here's all of the Dart code related to the **Delete All** button.
+Here is all of the Dart code related to the **Delete All** button.
 
-{% highlight dart %}
-import 'dart:html';
-...
-ButtonElement deleteAll;
-
-void main() {}
-...
-  deleteAll = query('#delete-all');
-  deleteAll.on.click.add((e) => toDoList.elements.clear());
-}
-...
-{% endhighlight %}
+![Remove all child elements from an Element](images/remove-all-code.png)
 
 </li>
 </ol>
+
+##About function expressions {#about-function-expressions}
+
+The todo-with-delete app uses
+an interesting bit of Dart syntax
+when adding an event listener to the **Delete All** button.
+The argument passed into the add() function
+is an example of a _function expression_,
+which is a shorthand way of defining functions.
+
+![An event listener coded as a function expression](images/event-listener-exp.png)
+
+It is equivalent to writing this:
+
+![Longer code for event listeners](images/event-listener-long.png)
+
+Function expressions are often used
+when registering event handlers on an element
+and can extend over multiple lines.
+When registering event handlers,
+the function must be an EventListener.
+That is,
+it returns no value and takes and Event object as a parameter.
+
+##About Dart's event-related classes {#about-event-classes}
+
+A Dart element can generate various kinds of events.
+For each event type, an element maintains a list of event listeners.
+Note that many listeners can be registered for one event type.
+
+![Event listeners](images/listeners.png)
+
+Various Dart classes, all defined in the dart:html library,
+are involved in registering an event handler.
+The following diagram shows a line of code from the todo-with-delete
+app that registers a mouse click event listener on an element.
+
+![Dart classes involved in event listener registration](images/event-classes.png)
+
+The first token, newToDo, is a reference to the element in question.
+It is followed by 'on', which is a reference to an EventElements object.
+The
+<a href="http://api.dartlang.org/dart_html/ElementEvents.html" target="_blank"> ElementEvents</a>
+class defines the events common to all Dart Elements
+and is defined in the dart:html library.
+(InputElement has a larger set of events as defined in
+<a href="http://api.dartlang.org/dart_html/InputElementEvents.html" target="_blank"> InputElementEvents</a>.)
+`click` is a list of event listeners
+(more specifically an EventListenerList)
+that can handle mouse click events.
+
+| Dart Type | Purpose |
+|---|---|
+| <a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | Represents an element in the DOM |
+| <a href="http://api.dartlang.org/dart_html/ElementEvents.html" target="_blank">ElementEvents</a>| Defines the event types common to all Elements |
+| <a href="http://api.dartlang.org/dart_html/EventListenerList.html" target="_blank">EventListenerList</a> | A list of listeners for a particular event type |
+| <a href="http://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a> | An object that carries information about the event that occurred |
+| <a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a> | A function that can handle events |
+{: .table}
 
 <div class="row">
   <div class="span3">
