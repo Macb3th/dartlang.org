@@ -68,7 +68,7 @@ _dance_, _sing_, _walk the dog_, and _laugh_ have all been entered.
 ![Entering items into the todo-with-delete app](images/enter-items.png)
 
 Point the mouse cursor at one of the items in the list.
-Its appearances changes;
+Its appearance changes;
 the text is now red and the font is slightly larger.
 Also, the cursor changes to a pointer or a hand shape.
 These visual clues signal to the user that something irreversible
@@ -148,7 +148,7 @@ and the item disappears from the to do list.
 When the user clicks the **Delete All** button,
 all elements are removed from the list.
 
-![Use element.elements.clear() to remove all of an elements children](images/remove-all-elements.png)
+![Use element.elements.clear() to remove all of an element's children](images/remove-all-elements.png)
 
 In this case, using the List class's clear() function
 yields the most concise code.
@@ -204,10 +204,10 @@ or even this:
 ...
 void main() {
   ...
-  deleteAll.on.click.add(deleteAll);
+  deleteAll.on.click.add(deleteAllElements);
 }
 
-void deleteAll(Event e) {
+void deleteAllElements(Event e) {
   toDoList.elements.clear();
 }
 ...

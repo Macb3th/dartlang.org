@@ -197,7 +197,7 @@ that gets an Element object from the DOM.
 
 The argument to query(), a string,
 is a CSS selector that identifies the object.
-Most commonly CSS selectors are classes, identifiers, or attributes.
+Most commonly CSS selectors specify classes, identifiers, or attributes.
 We'll look at these in a little more detail later,
 when we add a CSS file to the mini app.
 In this case RipVanWinkle is the unique ID for a paragraph element
@@ -511,10 +511,12 @@ Save your files and run the app again.
 <a name="about-css-selectors">
 <h2><img src="../new-icon.png" width="48" height="48">About CSS selectors</h2>
 
-A CSS selector is a pattern used to 
-select matching elements in the DOM.
-It is a tactic for allowing
-the CSS, HTML, and Dart code
+IDs, classes, and other information about elements
+are established in HTML.
+Your Dart code can use this information
+to get elements using a CSS selector&mdash;a pattern
+used to select matching elements in the DOM.
+CSS selectors allow the CSS, HTML, and Dart code
 to refer to the same objects.
 Commonly, a selector specifies an ID,
 an HTML element type,

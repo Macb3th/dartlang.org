@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "What is Dart Editor Trying to Tell Me?"
+title: "What Is Dart Editor Trying to Tell Me?"
 description: "Errors and warnings and code completions"
 has-permalinks: true
 tutorial:
@@ -27,9 +27,8 @@ The sections below show you a few of the errors and
 warnings you might see.
 They also show you how to use Dart Editor's code completion help.
 
-Follow the instructions to transform
-the default helloworld command-line app,
-into this app:
+Follow along with the instructions as you transform
+the code for the default helloworld command-line app into this code:
 
 {% highlight dart %}
 import 'dart:html';
@@ -63,13 +62,15 @@ Errors can be either compile-time or run-time.
 Compile-time errors prevent your program from running at all.
 Run-time errors result in exceptions.
 
-Finish typing the complete line of code OR semi-colon (;),
+Finish typing the complete line of code including the semi-colon (;)
 and the red 'x' disappears.
 
+<aside class="alert" markdown="1">
 **Tip:** Save your file with **File > Save**.
 In some versions of Dart Editor,
 you need to save the file and start typing again
 before a newly imported library is detected.
+</aside>
 
 ##Warnings
 
@@ -87,7 +88,7 @@ In the background, Dart Editor does API lookup.
 Dart Editor recognizes the top-level query() function
 from the Dart HTML library,
 but it has detected a possible problem.
-Hover the mouse over the yellow warning sign and 
+Point the mouse at the yellow warning sign and 
 a helpful warning message will be displayed in a tooltip:
 
 <img src="images/warning-tooltip-screenshot.png"
