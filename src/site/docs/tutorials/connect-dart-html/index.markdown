@@ -27,6 +27,8 @@ several topics&mdash;the DOM tree, nodes, elements,
 HTML, Dart language and libraries,
 and Dart Editor.
 
+<img src="images/simple-dom-tree.svg">
+
 The interdependencies are circular,
 but we have to begin somewhere,
 so we begin with a simple HTML file,
@@ -102,7 +104,7 @@ Except for the root node, each node in the tree has exactly one parent.
 Each node can have many children.
 
 An HTML file defines the initial structure of a document.
-Dart or JavaScript can dynamically modify that document by
+Dart or JavaScript can dynamically modify that document
 by adding, deleting, and modifying the nodes in the DOM tree.
 When the DOM is changed,
 the browser immediately re-renders the window.
