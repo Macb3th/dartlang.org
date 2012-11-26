@@ -152,7 +152,7 @@ For example:
 {: .table}
 
 An Element maintains references to its child element in a List\<Element>,
-which your Dart code can refer to with the getter `elements`.
+which your Dart code can refer to with the getter `children`.
 The List class has various functions and operators
 whereby you can refer to each child Element individually,
 iterate over the list, and add and remove elements.
@@ -288,7 +288,7 @@ The change event handler has the following code:
 The final line of code is where the DOM gets changed.
 The add() function is defined in the List class in the dart:core library.
 
-An Element keeps references to all of its children in a list called `elements`.
+An Element keeps references to all of its children in a list called `children`.
 By adding and removing elements to and from this list,
 your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.

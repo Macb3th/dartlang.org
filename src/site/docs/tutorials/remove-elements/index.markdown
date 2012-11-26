@@ -10,7 +10,7 @@ tutorial:
 {% capture whats_the_point %}
 
 * Use _element_.remove() to remove an element from the DOM.
-* Remove all children from an element with _element_.elements.clear().
+* Remove all children from an element with _element_.children.clear().
 * Function expressions are a convenient way to define single-use functions.
 * => is a shorthand syntax for defining functions that contain just one
 expression.
@@ -148,7 +148,7 @@ and the item disappears from the to do list.
 When the user clicks the **Delete All** button,
 all elements are removed from the list.
 
-![Use element.elements.clear() to remove all of an element's children](images/remove-all-elements.png)
+![Use element.children.clear() to remove all of an element's children](images/remove-all-elements.png)
 
 In this case, using the List class's clear() function
 yields the most concise code.
@@ -194,7 +194,7 @@ It is equivalent to writing this:
 
 {% highlight dart %}
 deleteAll.on.click.add((e) {
-  toDoList.elements.clear();
+  toDoList.children.clear();
 });
 {% endhighlight %}
 
@@ -208,7 +208,7 @@ void main() {
 }
 
 void deleteAllElements(Event e) {
-  toDoList.elements.clear();
+  toDoList.children.clear();
 }
 ...
 {% endhighlight %}
