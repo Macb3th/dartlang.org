@@ -55,7 +55,7 @@ BSD-style license that can be found in the LICENSE file.
 
 <div class="row">
   <div class="span3">
-  <a href="/docs/tutorials/packages/"><i class="icon-chevron-left"> </i> Use Shared Code</a>
+  <a href="/docs/tutorials/packages/"><i class="icon-chevron-left"> </i> Install Shared Packages</a>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

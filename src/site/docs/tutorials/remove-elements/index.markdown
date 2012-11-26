@@ -269,7 +269,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/packages/" class="pull-right">Use Shared Code <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/packages/" class="pull-right">Install Shared Packages <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

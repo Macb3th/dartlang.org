@@ -80,7 +80,7 @@ by adding an Element to the DOM.
 you will modify the little todo app from Target 3
 to remove elements from the DOM.
 
-<img src="new-icon.png" width="48" height="48"> [Target 5: Use Shared Code](packages/)
+<img src="new-icon.png" width="48" height="48"> [Target 5: Install Shared Packages](packages/)
 : Packages help you organize and share your code.
 One useful package provided by the Dart team
 implements web components.
