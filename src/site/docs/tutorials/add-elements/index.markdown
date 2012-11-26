@@ -249,8 +249,7 @@ that an input element can generate.
 For example, you can use `click` to handle mouse clicks,
 or `keyDown` for when the user presses a key on the keyboard.
 
-<a name="about-event-listeners">
-<h2><img src="../new-icon.png" width="48" height="48">About EventListener functions</h2>
+##About EventListener functions {#about-event-listeners}
 
 The argument passed to the add() function is a _callback function_
 of type 
@@ -296,8 +295,7 @@ When the DOM changes, the browser re-renders the browser page.
 The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
 
-<a name="about-css">
-<h2><img src="../new-icon.png" width="48" height="48">Styling the page elements</h2>
+##Styling the page elements {#about-css}
 
 Let's take a look at the CSS file for this app.
 

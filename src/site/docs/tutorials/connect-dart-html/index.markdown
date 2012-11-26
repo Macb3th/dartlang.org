@@ -27,8 +27,6 @@ several topics&mdash;the DOM tree, nodes, elements,
 HTML, Dart language and libraries,
 and Dart Editor.
 
-<img src="images/simple-dom-tree.svg">
-
 The interdependencies are circular,
 but we have to begin somewhere,
 so we begin with a simple HTML file,
@@ -147,7 +145,6 @@ void main() {
 }
 {% endhighlight %}
 
-<img src="../new-icon.png" width="48" height="48">
 <i class="icon-info-sign"> </i>
 <a href="errors-warnings.html">What is Dart Editor trying to tell me?</a>
 
@@ -509,8 +506,7 @@ Save your files and run the app again.
 <img src="images/mini-output-with-css.png"
      alt="Mini app running in Dartium with CSS styles in effect">
 
-<a name="about-css-selectors">
-<h2><img src="../new-icon.png" width="48" height="48">About CSS selectors</h2>
+##About CSS selectors {#about-css-selectors}
 
 IDs, classes, and other information about elements
 are established in HTML.
