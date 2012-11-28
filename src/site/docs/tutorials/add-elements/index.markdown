@@ -28,7 +28,7 @@ its parent and its children.
 In Dart, the
 <a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a>
 class contains the methods and properties
-that implement node's tree functionality.
+that implement a node's tree functionality.
 
 HTML page elements are one kind of node that can be in the DOM tree.
 They have a rectangular area on the page and can receive events.

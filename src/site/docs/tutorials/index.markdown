@@ -80,12 +80,16 @@ by adding an Element to the DOM.
 you will modify the little todo app from Target 3
 to remove elements from the DOM.
 
+<hr>
+And now for something completely different!
+<hr>
+
 <img src="new-icon.png" width="48" height="48"> [Target 5: Install Shared Packages](packages/)
-: Packages help you organize and share your code.
-One useful package provided by the Dart team
-implements web components.
-This target walks through the steps to set up an application
-that uses Dart's web components package.
+: Packages helps programmers to organize and share code.
+Many open-source Dart packages are hosted at the
+<a href="http://pub.dartlang.org/">pub.dartlang.org</a>
+repository.
+This target walks you through the steps to install one of those packages.
 
 <img src="new-icon.png" width="48" height="48"> [Target 6: Start Using Web Components](web-components/)
 : [xx: blah blah blah]

@@ -15,6 +15,13 @@ tutorial:
 
 {% capture content %}
 
+1. Start with example from previous target
+2. create build.dart file
+3. run build.dart
+    what do you get?
+4. copy stuff into helloworldtoday.dart
+5. et voila, run the bloody thing.
+
 ##Use web_components one-way data binding {#use-one-way}
 
 Let's use one-way data binding from the web_components package to

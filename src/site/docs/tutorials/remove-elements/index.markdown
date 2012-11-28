@@ -35,7 +35,7 @@ for removing all items from the list.
 * [Removing an element from the DOM tree](#remove-elem)
 * [Removing all child elements from an element](#remove-all-elem)
 * [About function expressions and =>](#about-function-expressions)
-* [About Dart's event-related classes ](#about-event-classes)
+* [About Dart's event-related classes](#about-event-classes)
 
 ##Copy and run the todo_with_delete app {#copy-app}
 
