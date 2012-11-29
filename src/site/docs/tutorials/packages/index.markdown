@@ -197,11 +197,11 @@ only one, `lib`, was installed when you ran pub install.
     </div>
     <div class="span7">
       <em>Housekeeping files</em>:
-      When using an package written by someone else,
+      When using a package written by someone else,
       the README file is a good place to start.
       It should contain important information about the package,
       such as its intent, contents, samples, and instructions.
-      The license file provides copyright and rules-of-use information.
+      The LICENSE file provides copyright and rules-of-use information.
       These files can be found at the package repository.
       They are not installed when you install a package.
     </div>

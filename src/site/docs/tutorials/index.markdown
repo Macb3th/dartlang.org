@@ -97,6 +97,14 @@ Many open-source Dart packages are hosted at the
 repository.
 This target walks you through the steps to install one of those packages.
 
+<hr>
+
+<img src="new-icon.png" width="48" height="48"> [ Target 6: Start Using Web Components](web-components/)
+: One particularly interesting package at the repository
+is the web_components package,
+which contains the resources for creating encapsulated,
+reusable views&mdash;a powerful tool for building larger web applications.
+
 <div>
   <hr>
   <div class="row">
