@@ -15,6 +15,12 @@ tutorial:
 
 {% capture content %}
 
+{% comment %}
+Of particular interest is the web_components package,
+which contains the resources for creating encapsulated,
+reusable views&mdash;a powerful tool for building larger web applications.
+{% endcomment %}
+
 1. Start with example from previous target
 2. create build.dart file
 3. run build.dart

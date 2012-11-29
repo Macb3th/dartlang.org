@@ -24,12 +24,10 @@ Many interesting and useful packages of reusable Dart code
 are available at the
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 repository.
-Of particular interest is the web_components package,
-which contains the resources for creating encapsulated,
-reusable views&mdash;a powerful tool for building larger web applications.
 
 This target shows you how to use Dart's package manager
-to install the web_components package.
+to install one of the packages in the repository,
+the vector_math package.
 You can follow these same steps to install any package hosted at
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>;
 just change the package name when you get to that step.
@@ -51,24 +49,22 @@ You can create an application and its package together
 from the New Application window in Dart Editor.
 
 Start Dart Editor and bring up the **New Application** window.
-Use _helloworldtoday_ for the application name.
+Use vector_victor for the application name.
 Select **Add pub support** to make Dart Editor
 generate basic package support.
 Click **Finish**.
 
-![Select **Add pub support** to use packages](images/create-hwtoday.png)
+![Select **Add pub support** to use packages](images/create-victor.png)
 
 Dart Editor creates a new directory with boilerplate files.
-
 Notice that the directory contains a new kind of file:
 the `pubspec.yaml` file.
 Double click pubspec.yaml to view its contents.
 
-![Dart Editor with pubspec.yaml file](images/hwtoday-files.png)
+![Dart Editor with pubspec.yaml file](images/victor-files.png)
 
-It is this file that makes the helloworldtoday directory a package.
+It is this file that makes the vector_victor directory a package.
 This file contains the package specification written in YAML.
-
 At minimum, the pubspec provides a name for the package.
 It also can provide a description and identify packages on
 which this package is dependent.
@@ -116,20 +112,20 @@ Each item in the dependencies list
 specifies the name, and sometimes the version,
 of a package that your application uses.
 
-To make helloworldtoday dependent on
-the web_components package,
+To make vector_victor dependent on
+the vector_math package,
 modify the pubspec.yaml file as shown below.
 Be sure to remove the hash marks (#) so that
 the dependencies list is not commented out.
 
-![A pubspec with dependency on web_components package](images/pubspec-webcomponents.png)
+![A pubspec with dependency on the vector_math package](images/pubspec-vectormath.png)
 
 `any` means that this application can use
-any version of the web_components package.
+any version of the vector_math package.
 You could instead specify a particular version of the package
 and for a real application you should likely do so.
 
-<a href="http://pub.dartlang.org/">pub.dartlang.org</a>,
+<a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 is the primary public repository for Dart packages.
 Dart's package manager automatically checks that
 website when resolving package dependencies.
@@ -143,22 +139,26 @@ In Dart Editor, save pubspec.yaml with **File->Save**.
 When you save the file,
 Dart Editor automatically runs the package manager,
 which recursively installs the Dart libraries
-declared in the packages in the dependencies list.
+from the packages in the dependencies list.
 You can also select **Pub Install** from the **Tools** menu in Dart Editor.
 
-Pub install creates a directory called packages,
-in your application directory.
+Pub install puts the installed libraries in a directory called packages
+under the application's top-level directory.
 Click the wee arrow to expand the packages directory.
-There you will find the web_components directory,
-which contain the Dart libraries from the web_components package.
+There you will find the vector_math directory,
+which contains the Dart libraries from the vector_math package.
 
 ![Pub Install finds and installs required packages](images/run-pub-install.png)
 
 In addition,
-the package manager installed all of the Dart libraries
-on which web_components depends, recursively.
-So by getting web_components,
-your application also gets the unittest, js, and other libraries.
+you will notice the unittest directory;
+unittest is another package in the repository.
+vector_math depends on unittest
+(unittest is listed in vector_math's dependencies list)
+so package manager installed it as well.
+Pub install works recursively and installs
+all of the required packages
+of your application and its dependencies.
 
 The package manager also created a file called pubspec.lock,
 which identifies the specific versions of the packages that were installed.
@@ -168,17 +168,18 @@ to update to new versions as needed.
 
 ##What did you get (and not get)? {#about-packages}
 
-The package manager only installed the Dart libraries from
-the web_components package.
-The package has other resources that might be useful to you.
+Besides the Dart libraries,
+the vector_math package has other resources that might be useful to you
+that do not get installed into your application directory.
 
 Let's take a step back for a moment to look at what
 you got and where it came from.
 Use your browser and go to
 the github repository for the
-<a href="https://github.com/dart-lang/dart-web-components" target="_blank">
-web_components package
-</a>.
+<a href="https://github.com/johnmccutchan/DartVectorMath" target="_blank">
+vector_math
+</a>
+package.
 You will see a lot of files and directories there.
 Only one of which, `lib`, was installed when you ran pub install.
 
@@ -190,6 +191,7 @@ Only one of which, `lib`, was installed when you ran pub install.
          alt="Dart libraries directory"/>
     </div>
     <div class="span7">
+      <em>Dart libraries</em>:
       The lib directory contains one or more Dart libraries,
       which can be imported into your Dart programs.
       <em>It is this directory that gets installed when you install a package.</em>
@@ -202,6 +204,7 @@ Only one of which, `lib`, was installed when you ran pub install.
          alt="Housekeeping files"/>
     </div>
     <div class="span7">
+      <em>Housekeeping files</em>:
       When using an package written by someone else,
       the readme file is a good place to start.
       It should contain important information about the package,
@@ -218,6 +221,7 @@ Only one of which, `lib`, was installed when you ran pub install.
          alt="Document, scripts, tests, and other resources"/>
     </div>
     <div class="span7">
+      <em>Other resources</em>:
       Along with Dart libraries,
       a package might also contain other resources 
       such as example code, tests, scripts, and documentation.
@@ -235,16 +239,19 @@ By following these conventions,
 programmers make it easier for one another to learn
 and quickly put to use the contents of a package.
 Like other well-built packages,
-the web_components package includes resources organized and named
+the vector_math package includes resources organized and named
 according to convention.
 
 ##Import libraries from a package {#use-package}
 
-Now that the web_components libraries are installed,
-you can use the functions and classes declared in those libraries
-in your application.
+Open the vector_math directory by clicking the little arrow.
 
-Use the import directive to use code from a library.
+![Finally, the vector_math library files](images/the-vectormath-library.png)
+
+The directory contains two Dart files,
+each of which defines a different library.
+Like the SDK libraries,
+use the import directive to use code from an installed library.
 Recall the following line of code that imports the dart HTML library:
 
 {% highlight dart %}
@@ -256,15 +263,9 @@ are identified with the special dart: prefix.
 For libraries installed by the package manager,
 use the `package:` prefix.
 
-The web_components package contains several libraries:
-web_components, watcher, and build_utils, to name a few.
-So to use classes the web_components library, write:
-
 ![Import a library installed from an external package](images/import-directive.png)
 
-The next target shows you how to use some of the features
-of the web_components package,
-so we won't get into the specifics about that now.
+Note that you specify the filename not the library name.
 
 <div class="row">
   <div class="span3">
