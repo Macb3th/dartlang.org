@@ -17,7 +17,7 @@ tutorial:
 
 {% capture content %}
 
-Now that you're are able to create and run a Dart application
+Now that you're able to create and run a Dart application
 and have a basic understanding of DOM programming,
 you are ready to leverage code written by other programmers.
 Many interesting and useful packages of reusable Dart code
@@ -25,8 +25,9 @@ are available at the
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 repository.
 
-This target shows you how to use Dart's package manager
-to install one of the packages in the repository,
+This target shows you how to use `pub`&mdash;a package manager
+that comes with Dart&mdash;to
+install one of the packages in the repository,
 the vector_math package.
 You can follow these same steps to install any package hosted at
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>;
@@ -36,8 +37,8 @@ in a well-built package.
 
 * [Create a new application within a package](#new-app-with-pkg)
 * [... Or, put an existing application into a package](#old-app-in-pkg)
-* [Name the package dependences](#name-dependencies)
-* [Install the package dependences](#install-dependencies)
+* [Name the package dependencies](#name-dependencies)
+* [Install the package dependencies](#install-dependencies)
 * [What did you get (and not get)?](#about-packages)
 * [Import libraries from a package](#use-package)
 
@@ -63,24 +64,16 @@ Double click pubspec.yaml to view its contents.
 
 ![Dart Editor with pubspec.yaml file](images/victor-files.png)
 
-It is this file that makes the vector_victor directory a package.
+The pubspec.yaml file is what makes the vector_victor directory a package.
 This file contains the package specification written in YAML.
 At minimum, the pubspec provides a name for the package.
 It also can provide a description and identify packages on
-which this package is dependent.
+which this package depends.
 
 ![The default pubspec.yaml file specifies name and description](images/pubspec.png)
 
 Any application with a valid pubspec.yaml file in its top-level directory
 is a package and can therefore use external packages.
-
-An application package contains everything required
-by an application to run.
-The code is not intended to be reused by other programmers.
-A library package contains code, libraries,
-tools, and resources intended to be shared and reused by others.
-To use a library package,
-an application must be in an application package.
 
 ##...Or put an existing application into a package {#old-app-in-pkg}
 
@@ -96,7 +89,7 @@ Your pubspec.yaml file must at least specify the package name.
 Dart Editor to create the pubspec.yaml file,
 you might get an error message
 when you first create the empty pubspec.yaml file.
-This is because the package manager runs automatically and
+This is because Dart Editor runs pub automatically and
 is trying to resolve the package specification file,
 which at first has nothing in it.
 Ignore the message,
@@ -104,15 +97,16 @@ add the required name field,
 and save the pubspec.yaml file.
 </aside>
 
-##Name the package dependences {#name-dependencies}
+##Name the package dependencies {#name-dependencies}
 
 To use an external library package,
-include it in a list of _dependencies_ in the pubspec.yaml file.
+include it in a list of _dependencies_
+in your application's pubspec.yaml file.
 Each item in the dependencies list
 specifies the name, and sometimes the version,
 of a package that your application uses.
 
-To make vector_victor dependent on
+To specify that vector_victor depends on
 the vector_math package,
 modify the pubspec.yaml file as shown below.
 Be sure to remove the hash marks (#) so that
@@ -122,31 +116,30 @@ the dependencies list is not commented out.
 
 `any` means that this application can use
 any version of the vector_math package.
-You could instead specify a particular version of the package
-and for a real application you should likely do so.
+You could instead specify a particular version of the package.
 
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 is the primary public repository for Dart packages.
-Dart's package manager automatically checks that
+`pub` automatically checks that
 website when resolving package dependencies.
-So to use one of the libraries from that site,
+To use one of the packages from that site,
 you can specify it by its simple name,
 as we have done here.
 
-##Install the package dependences {#install-dependencies}
+##Install the package dependencies {#install-dependencies}
 
-In Dart Editor, save pubspec.yaml with **File->Save**.
+In Dart Editor, save pubspec.yaml with **File > Save**.
 When you save the file,
-Dart Editor automatically runs the package manager,
+Dart Editor automatically runs pub install,
 which recursively installs the Dart libraries
 from the packages in the dependencies list.
 You can also select **Pub Install** from the **Tools** menu in Dart Editor.
 
-Pub install puts the installed libraries in a directory called packages
+Pub puts the libraries in a directory called packages
 under the application's top-level directory.
 Click the wee arrow to expand the packages directory.
 There you will find the vector_math directory,
-which contains the Dart libraries from the vector_math package.
+which links to the Dart libraries from the vector_math package.
 
 ![Pub Install finds and installs required packages](images/run-pub-install.png)
 
@@ -155,12 +148,12 @@ you will notice the unittest directory;
 unittest is another package in the repository.
 vector_math depends on unittest
 (unittest is listed in vector_math's dependencies list)
-so package manager installed it as well.
+so pub installs it as well.
 Pub install works recursively and installs
 all of the required packages
 of your application and its dependencies.
 
-The package manager also created a file called pubspec.lock,
+Pub install also creates a file called pubspec.lock,
 which identifies the specific versions of the packages that were installed.
 This helps to provide a stable development environment.
 Later you can modify the version constraints and use `pub update`
@@ -171,17 +164,17 @@ to update to new versions as needed.
 Besides the Dart libraries,
 the vector_math package has other resources that might be useful to you
 that do not get installed into your application directory.
-
 Let's take a step back for a moment to look at what
 you got and where it came from.
-Use your browser and go to
-the github repository for the
+
+To see the contents of the vector_math package,
+visit the
 <a href="https://github.com/johnmccutchan/DartVectorMath" target="_blank">
-vector_math
+Dart vector math repository
 </a>
-package.
-You will see a lot of files and directories there.
-Only one of which, `lib`, was installed when you ran pub install.
+at GitHub.
+Although many files and directories are in the repository,
+only one, `lib`, was installed when you ran pub install.
 
 <div>
   <hr>
@@ -194,7 +187,6 @@ Only one of which, `lib`, was installed when you ran pub install.
       <em>Dart libraries</em>:
       The lib directory contains one or more Dart libraries,
       which can be imported into your Dart programs.
-      <em>It is this directory that gets installed when you install a package.</em>
     </div>
   </div>
   <hr>
@@ -206,10 +198,10 @@ Only one of which, `lib`, was installed when you ran pub install.
     <div class="span7">
       <em>Housekeeping files</em>:
       When using an package written by someone else,
-      the readme file is a good place to start.
+      the README file is a good place to start.
       It should contain important information about the package,
       such as its intent, contents, samples, and instructions.
-      The license file provides copyright and rules of use information.
+      The license file provides copyright and rules-of-use information.
       These files can be found at the package repository.
       They are not installed when you install a package.
     </div>
@@ -226,21 +218,12 @@ Only one of which, `lib`, was installed when you ran pub install.
       a package might also contain other resources 
       such as example code, tests, scripts, and documentation.
       If a package contains these resources,
-      they should be in the directories named as shown.
+      they should be in the directories as specified in the pub
+<a href="http://pub.dartlang.org/doc/package-layout.html">conventions</a>.
     </div>
   </div>
   <hr>
 </div>
-
-A set of
-<a href="http://pub.dartlang.org/doc/package-layout.html">conventions</a>
-govern the contents and organization of a package.
-By following these conventions,
-programmers make it easier for one another to learn
-and quickly put to use the contents of a package.
-Like other well-built packages,
-the vector_math package includes resources organized and named
-according to convention.
 
 ##Import libraries from a package {#use-package}
 
@@ -250,22 +233,18 @@ Open the vector_math directory by clicking the little arrow.
 
 The directory contains two Dart files,
 each of which defines a different library.
-Like the SDK libraries,
+As with the SDK libraries,
 use the import directive to use code from an installed library.
-Recall the following line of code that imports the dart HTML library:
-
-{% highlight dart %}
-import 'dart:html';
-{% endhighlight %}
-
 The Dart SDK libraries are built-in and
 are identified with the special dart: prefix.
-For libraries installed by the package manager,
+For external libraries installed by pub,
 use the `package:` prefix.
 
-![Import a library installed from an external package](images/import-directive.png)
+{% highlight dart %}
+import 'package:vector_math/vector_math_browser.dart';
+{% endhighlight %}
 
-Note that you specify the filename not the library name.
+Note that you specify the filename, not the library name.
 
 <div class="row">
   <div class="span3">
@@ -279,7 +258,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/web-components/" class="pull-right">Web Components <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 
